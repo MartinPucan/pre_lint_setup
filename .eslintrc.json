@@ -1,0 +1,265 @@
+{
+    // allows specifying language options which parser will support
+  "parserOptions": {
+    "ecmaVersion": 13,
+    // object indicating additional language features
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    // source files expected to be ECMAScript modules
+    "sourceType": "module"
+  },
+  // eslint plugins to use
+  "plugins": [
+    "react"
+  ],
+  // plugin settings
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "18.0"
+    }
+  },
+  // environment defines global variables that are predefined
+  "env": {
+    "builtin": true,
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  // extends global variables allowed by environment
+  "globals": {
+    "console": false,
+    "document": false,
+    "navigator": false,
+    "window": false
+  },
+  "overrides":[{
+    "files":["*.ts", "*.tsx"],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint",
+      "react",
+      "typescript-sort-keys",
+      "@tanstack/query"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@tanstack/eslint-plugin-query/recommended"
+    ],
+    "rules": {
+      "indent": "off",
+      "typescript-sort-keys/interface": "warn",
+      "typescript-sort-keys/string-enum": "warn",
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/indent": ["error"],
+      "@typescript-eslint/ban-ts-comment":"off",
+      "@typescript-eslint/member-delimiter-style":[
+        "warn",
+        {
+          "multiline": {
+            "delimiter": "semi",
+            "requireLast": true
+          },
+          "singleline": {
+            "delimiter": "semi",
+            "requireLast": true
+          }
+        }
+      ],
+      "@typescript-eslint/type-annotation-spacing":[
+        "warn",
+        {
+          "before": false,
+          "after": true,
+          "overrides": {
+            "arrow": {
+              "before": true,
+              "after": true
+            },
+            "variable": {
+              "before": false,
+              "after": false
+            }
+          }
+        }
+      ]
+    }
+  }],
+  // extends rules with recommended setting
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:compat/recommended"
+  ],
+  // modify which rules is used
+  "rules": {
+    // adds spaces between arrow in arrow function
+    "arrow-spacing": [
+      "warn",
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    // adds empty line before and after any block statement
+    "padding-line-between-statements": [
+      "warn",
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": [
+          "block-like",
+          "return"
+        ]
+      },
+      {
+        "blankLine": "always",
+        "prev": "block-like",
+        "next": "*"
+      }
+    ],
+    // prevent reading variable which is not reachable by current scope
+    "block-scoped-var": "error",
+    // rewrites shortened version of block element like if statement to correct one
+    "curly": "warn",
+    // disable eval
+    "no-eval": "error",
+    // rewrites decimal number in format `.1` to `0.1`
+    "no-floating-decimal": "warn",
+    // deletes spaces in Array around brackets
+    "array-bracket-spacing": [
+      "warn",
+      "never"
+    ],
+    // adds space around brackets in a block
+    "block-spacing": [
+      "warn",
+      "always"
+    ],
+    /**
+     * If else statement formatting
+     * ```js
+     * if (a === "true") {
+     *  //...
+     * }else {
+     *  //...
+     * }
+     * //Will be transformed into:
+     * if (a===true) {
+     *  //...
+     * }
+     * else {
+     *  //...
+     * }
+     * ```
+     */
+    "brace-style": [
+      "warn",
+      "stroustrup"
+    ],
+    // sets indentation
+    "indent": [
+      1,
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    // disables prop-types
+    "react/prop-types": "off",
+    // rewrites `'` into `"`
+    "quotes": [
+      "warn",
+      "double"
+    ],
+    // forces to write semi everywhere
+    "semi": [
+      "warn",
+      "always"
+    ],
+    "linebreak-style": [
+      "warn",
+      "unix"
+    ],
+    "comma-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "comma-style": [
+      "warn",
+      "last"
+    ],
+    "computed-property-spacing": [
+      "warn",
+      "never"
+    ],
+    "eol-last": "warn",
+    "jsx-quotes": [
+      "warn",
+      "prefer-double"
+    ],
+    "keyword-spacing": "warn",
+    "lines-between-class-members": "warn",
+    "no-multiple-empty-lines": "warn",
+    "no-trailing-spaces": "warn",
+    "no-whitespace-before-property": "warn",
+    "semi-spacing": [
+      "warn",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "space-before-blocks": [
+      "warn",
+      {
+        "functions": "always",
+        "keywords": "always",
+        "classes": "always"
+      }
+    ],
+    "space-in-parens": [
+      "warn",
+      "never"
+    ],
+    "space-infix-ops": "warn",
+    "spaced-comment": [
+      "warn",
+      "always",
+      {
+        "line": {
+          "markers": [
+            "/"
+          ],
+          "exceptions": [
+            "-",
+            "+"
+          ]
+        },
+        "block": {
+          "markers": [
+            "!"
+          ],
+          "exceptions": [
+            "*"
+          ],
+          "balanced": true
+        }
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn", // or error
+      {
+        "argsIgnorePattern": "^_$",
+        "varsIgnorePattern": "^_$",
+        "caughtErrorsIgnorePattern": "^_$"
+      }
+    ]
+  }
+}
