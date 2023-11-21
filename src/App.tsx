@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import {validation} from './utils';
 
 function App() {
   const array: any = [];

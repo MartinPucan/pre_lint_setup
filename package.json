@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "precommit": "prettier --write .",
+    "precommit": "tsc --noEmit --skipLibCheck && prettier --write src/*",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
