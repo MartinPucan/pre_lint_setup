@@ -4,7 +4,9 @@
 
 ### Husky
 > npm install husky --save-dev
+
 > npx husky install
+
 > npm pkg set scripts.prepare="precommit"
 
 ### Lint staged
